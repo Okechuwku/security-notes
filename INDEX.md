@@ -59,6 +59,16 @@ This directory contains comprehensive learning materials for insecure deserializ
 
 ---
 
+### 5. [DEVELOPING_CUSTOM_GADGET_CHAIN_PHP_DESERIALIZATION.md](DEVELOPING_CUSTOM_GADGET_CHAIN_PHP_DESERIALIZATION.md)
+**Custom PHP gadget chain** - Step-by-step lab solution
+- Source discovery via backup files
+- Gadget chain construction from magic methods
+- Serialization and encoding workflow
+
+**Best for**: Reproducing the custom PHP gadget chain technique
+
+---
+
 ## 🎯 Learning Path
 
 ### Beginner (First time learning)

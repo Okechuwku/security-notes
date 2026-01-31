@@ -68,3 +68,7 @@ Any techniques discussed should only be used on systems you own or have explicit
 
 Cybersecurity is a constantly evolving field.
 This repository reflects my learning journey, not a final authority. Improvements, refinements, and corrections will be made over time.
+
+## New write-ups
+
+- [Developing a custom gadget chain for PHP deserialization](DEVELOPING_CUSTOM_GADGET_CHAIN_PHP_DESERIALIZATION.md)
