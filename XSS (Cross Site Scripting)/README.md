@@ -17,6 +17,7 @@ This folder contains write-ups and notes for PortSwigger XSS labs and related te
 ### Stored XSS
 - [Stored DOM XSS (vulnerable escape function)](STORED_DOM_XSS_VULNERABLE_ESCAPE.md)
 - [Stored XSS into anchor href attribute (javascript: protocol)](STORED_XSS_ANCHOR_HREF_JAVASCRIPT_PROTOCOL.md)
+- [Exploiting XSS to bypass CSRF defenses](EXPLOITING_XSS_TO_BYPASS_CSRF_DEFENSES.md)
 
 ## 🧪 Testing Notes
 - [XSS testing notes for custom <var data-var> elements](xss-testing-data-var.md)
