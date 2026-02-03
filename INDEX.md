@@ -6,139 +6,61 @@ This directory contains comprehensive learning materials for insecure deserializ
 
 ---
 
-## 📖 Main Files
-
-### 1. [insecure-deserialization.md](insecure-deserialization.md)
-**The Complete Guide** - Start here for full understanding
-- Fundamental concepts
 - Identification techniques
 - Lab 1: PHP Object Injection (complete walkthrough)
-- Lab 2: Java Gadget Chain Exploitation (complete walkthrough)
-- Comprehensive lessons learned
-- Real-world implications and defenses
-
-**Best for**: Understanding concepts from first principles
 
 ---
-
-### 2. [QUICK_REFERENCE.md](QUICK_REFERENCE.md)
-**Cheat Sheet** - Quick lookup during exploitation
-- Identification checklist
-- PHP exploitation steps
 - Java exploitation steps
 - Common errors & solutions
-- Template payloads
-- Verification steps
-- Essential tools list
-
-**Best for**: During active exploitation, quick lookups
 
 ---
-
-### 3. [LESSONS_LEARNED.md](LESSONS_LEARNED.md)
-**In-Depth Analysis** - Understand what went wrong and why
-- Three-layer encoding problem explained
-- Module access flag issue (Java 16+)
-- Debugging checklist (5 categories)
 - PHP vs Java comparison table
-- Security implications
 - Defense strategies
 
 **Best for**: Learning from mistakes, understanding root causes
 
----
-
-### 4. [LAB2_FINAL_SOLUTION.md](LAB2_FINAL_SOLUTION.md)
 **Lab 2 Complete Solution** - Final working payload ready to use
 - The error that occurred
-- Working URL-encoded payload
-- Step-by-step usage instructions
-- Key learning highlights
-
 **Best for**: Reference when solving Java deserialization challenges
 
----
-
-### 5. [DEVELOPING_CUSTOM_GADGET_CHAIN_PHP_DESERIALIZATION.md](DEVELOPING_CUSTOM_GADGET_CHAIN_PHP_DESERIALIZATION.md)
-**Custom PHP gadget chain** - Step-by-step lab solution
-- Source discovery via backup files
 - Gadget chain construction from magic methods
 - Serialization and encoding workflow
-
-**Best for**: Reproducing the custom PHP gadget chain technique
-
----
-
 ## 🎯 Learning Path
-
 ### Beginner (First time learning)
 1. Read [insecure-deserialization.md](insecure-deserialization.md) - conceptual foundation
 2. Review [QUICK_REFERENCE.md](QUICK_REFERENCE.md) - identify patterns
-3. Work through Lab 1 (PHP) - hands-on practice
 
-### Intermediate (Working on Java Lab)
 1. Read Lab 2 section in [insecure-deserialization.md](insecure-deserialization.md)
 2. Use [QUICK_REFERENCE.md](QUICK_REFERENCE.md) for Java checklist
 3. If stuck: read [LAB2_FINAL_SOLUTION.md](LAB2_FINAL_SOLUTION.md)
 4. Deep dive: [LESSONS_LEARNED.md](LESSONS_LEARNED.md) on Java-specific issues
 
-### Advanced (Teaching or Real Assessment)
-1. Review [LESSONS_LEARNED.md](LESSONS_LEARNED.md) for comprehensive analysis
-2. Study comparison table (PHP vs Java)
-3. Use [QUICK_REFERENCE.md](QUICK_REFERENCE.md) for payload templates
-4. Reference [insecure-deserialization.md](insecure-deserialization.md) for full context
 
 ---
 
-## ✅ All 5 Labs Covered
 
 ### Lab 1: PHP Object Injection (SOLVED ✓)
 - **Vulnerability**: Magic method exploitation via object injection
-- **Method**: Direct property manipulation + `__destruct()` RCE
-- **Target**: Delete file via CustomTemplate class
-- **Key Learning**: Private property access via PHP Reflection
-- **Documentation**: [insecure-deserialization.md](insecure-deserialization.md)
-
-### Lab 2: Java Gadget Chain with Apache Commons (SOLVED ✓)
 - **Vulnerability**: CommonsCollections gadget chain during deserialization
 - **Method**: ysoserial + InvokerTransformer + URL-encoding critical
 - **Target**: Delete file via Runtime.exec()
-- **Key Learning**: URL-encoding entire Base64 payload (not just special chars!)
 - **Documentation**: [LAB2_JAVA_GADGET_CHAIN.md](LAB2_JAVA_GADGET_CHAIN.md)
 
 ### Lab 3: Symfony PHPGGC Chain (SOLVED ✓)
-- **Vulnerability**: PHPGGC gadget chain with HMAC bypass
-- **Method**: POP chain through Symfony components + HMAC signature forging
-- **Target**: Delete file via custom gadget chain
-- **Key Learning**: Signature generation and message structure for frameworks
-- **Documentation**: [LAB3_SYMFONY_GADGET_CHAIN.md](LAB3_SYMFONY_GADGET_CHAIN.md)
-
 ### Lab 4: Ruby Marshal Deserialization (SOLVED ✓)
 - **Vulnerability**: vakzz universal gadget chain for Ruby
 - **Method**: Net::WriteAdapter + Gem::RequestSet + Gem::Package classes
-- **Target**: Delete file via system command execution
 - **Key Learning**: Ruby internals, method dispatch, URL-encoding for special chars
 - **Documentation**: [LAB4_RUBY_DESERIALIZATION.md](LAB4_RUBY_DESERIALIZATION.md)
 
-### Lab 5: Custom Java Gadget Chain + SQL Injection (SOLVED ✓)
-- **Vulnerability**: Insecure deserialization + SQL injection (hybrid vulnerability)
-- **Method**: ProductTemplate class with vulnerable readObject() executing SQL
-- **Target**: Extract admin password via error-based SQLi, delete user carlos
 - **Key Learning**: Deserialization often triggers OTHER vulnerabilities, not just RCE
 - **Documentation**: [LAB5_JAVA_CUSTOM_GADGET.md](LAB5_JAVA_CUSTOM_GADGET.md)
 - **Password Extracted**: Via PostgreSQL CAST type error message
-
 ---
 
-## 🎯 Quick Lab Comparison
-
-| Aspect | Lab 1 (PHP) | Lab 2 (Java) | Lab 3 (PHP) | Lab 4 (Ruby) | Lab 5 (Java) |
-|--------|-----------|----------|-----------|----------|-----------|
-| **Serialization** | PHP serialize() | Java binary | PHP serialize() | Ruby Marshal | Java binary |
 | **Gadget Source** | Built-in magic | ysoserial | PHPGGC | vakzz chain | Custom app code |
 | **Exploitation** | Magic method | GadgetChain | POP chain | Universal chain | SQL injection |
 | **RCE Method** | Reflection | InvokerTransformer | Callable chain | Net::WriteAdapter | Error-based SQLi |
-| **Key Challenge** | Finding source | URL-encoding | HMAC bypass | Method chaining | Identifying SQL path |
 | **Difficulty** | ⭐ Low | ⭐⭐⭐ Hard | ⭐⭐ Medium | ⭐⭐⭐⭐ Very Hard | ⭐⭐ Medium |
 
 ---
@@ -162,26 +84,12 @@ This directory contains comprehensive learning materials for insecure deserializ
 - **Lab 3**: Base64 → HMAC signature addition
 - **Lab 4**: Ruby Marshal → URL-encode (special chars)
 - **Lab 5**: Base64 (standard)
-
-### Technique 4: Exploitation Trigger
-- **Lab 1**: Cookie-based deserialization
-- **Lab 2**: Cookie-based deserialization
-- **Lab 3**: HTTP parameter + signature verification
-- **Lab 4**: Cookie-based deserialization
 - **Lab 5**: Cookie-based deserialization (+ SQL execution)
 
----
 
 ## ✅ Labs Covered
 
----
-
----
-
-## 📖 Main Documentation Files
-
 ### 1. [insecure-deserialization.md](insecure-deserialization.md)
-**The Complete Guide** - Start here for full understanding
 - Fundamental concepts and vulnerability patterns
 - Identification techniques and testing methodology
 - Lab-by-lab walkthroughs and comparisons
@@ -196,12 +104,17 @@ This directory contains comprehensive learning materials for insecure deserializ
 **Cheat Sheet** - Quick lookup during exploitation
 - Identification checklist
 - Language-specific exploitation steps
-- Common errors & solutions
 - Template payloads for each language
 - Verification steps
 - Essential tools list
 
 **Best for**: During active exploitation, quick lookups
+
+---
+
+# XSS (Cross Site Scripting)
+
+
 
 ---
 
